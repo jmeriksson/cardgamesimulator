@@ -22,6 +22,8 @@ namespace me222nm_examination_3
             Console.WriteLine(queenOfHearts.ToString());
             Console.WriteLine(queenOfHearts.ID);
 
+            Deck deck = new Deck();
+
             /* Player firstPlayer = new Player("Nisse Tvåspader", 15);
             Console.WriteLine(firstPlayer.Nickname);
             Console.WriteLine(firstPlayer.Limit); */

@@ -9,7 +9,10 @@ namespace me222nm_examination_3
 
         public Deck ()
         {
-
+            for (int i = 1; i <= 52; i++)
+            {
+                _content.Add(new Card(i));
+            }
         }
     }
 }
