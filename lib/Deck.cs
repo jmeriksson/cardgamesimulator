@@ -9,7 +9,7 @@ namespace me222nm_examination_3
 
         public Deck ()
         {
-            
+
         }
     }
 }
