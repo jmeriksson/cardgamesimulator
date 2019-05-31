@@ -9,6 +9,8 @@ namespace me222nm_examination_3
 
         private Rank _rank;
 
+        private int _id; 
+
         public Rank Rank
         {
             get => _rank;
@@ -24,6 +26,22 @@ namespace me222nm_examination_3
             private set
             {
                 _suit = value;
+            }
+        }
+
+        public int ID
+        {
+            get => _id;
+            private set
+            {
+                if (value < 1 || value > 52)
+                {
+                    throw new ArgumentOutOfRangeException();
+                }
+                else
+                {
+                    _id = value;
+                }
             }
         }
 

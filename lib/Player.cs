@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace me222nm_examination_3
 {
@@ -7,6 +8,8 @@ namespace me222nm_examination_3
         private string _nickname;
 
         private int _limit;
+
+        public List<Card> hand = new List<Card>();
 
         public string Nickname
         {
