@@ -9,6 +9,8 @@ namespace me222nm_examination_3
 
         private int _limit;
 
+        private PlayTable _sitsAt; 
+
         public List<Card> hand = new List<Card>();
 
         public string Nickname
@@ -42,10 +44,20 @@ namespace me222nm_examination_3
             }
         }
 
-        public Player (string nickname, int limit)
+        public PlayTable SitsAt
+        {
+            get => _sitsAt;
+            private set 
+            {
+                _sitsAt = value;
+            }
+        }
+
+        public Player (string nickname, int limit, PlayTable table)
         {
             Nickname = nickname;
             Limit = limit; 
+            SitsAt = table;
         }
 
         public string EvaluateHand()

@@ -11,6 +11,9 @@ namespace me222nm_examination_3
             Console.OutputEncoding = System.Text.Encoding.UTF8;
 
             PlayTable table = new PlayTable();
+            Dealer dealer = new Dealer("Mickey Sharp-Eyes", 17, table);
+            Player playerOne = new Player("Stacy Snake-Eyes", 16, table);
+            Player playerTwo = new Player("Joey Spades", 15, table);
         }
     }
 }

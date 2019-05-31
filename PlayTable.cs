@@ -18,6 +18,11 @@ namespace me222nm_examination_3
             }
         }
 
+        public Deck DiscardedCards
+        {
+            get => _discardedCards;
+        }
+
         public PlayTable ()
         {
             DealingShoe = new Deck();

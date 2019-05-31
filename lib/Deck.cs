@@ -24,7 +24,7 @@ namespace me222nm_examination_3
         /// Add a card to Deck if that card is not already in the deck.
         /// </summary>
         /// <param name="item"></param>
-        private void Add (Card item)
+        public void Add (Card item)
         {
             if (_content.Contains(item))
             {
@@ -34,6 +34,36 @@ namespace me222nm_examination_3
             {
                 _content.Add(item);
             }
+        }
+
+        /// <summary>
+        /// Removes and returns the Card item at the zero index position.
+        /// </summary>
+        /// <returns>Card at top of deck</returns>
+        public Card DrawCard ()
+        {
+            Card cardAtTop = _content[0];
+            _content.Remove(cardAtTop);
+            return cardAtTop;
+        }
+
+        /// <summary>
+        /// Removes a specific card from Deck.
+        /// </summary>
+        /// <param name="cardToRemove">Reference to the Card to be removed</param>
+        /// <returns></returns>
+        public Card Remove (Card cardToRemove)
+        {
+            if (_content.Contains(cardToRemove))
+            {
+                _content.Remove(cardToRemove);
+                return cardToRemove;
+            }
+            else
+            {
+                throw new ArgumentException($"{cardToRemove} is not present in this deck.");
+            }
+            
         }
 
         /// <summary>
