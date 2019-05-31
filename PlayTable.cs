@@ -5,6 +5,23 @@ namespace me222nm_examination_3
 {
     public class PlayTable
     {
-        public List<Card> dealingShoe = new List<Card>();
+        private Deck _dealingShoe;
+
+        private Deck _discardedCards;
+
+        public Deck DealingShoe
+        {
+            get => _dealingShoe;
+            private set
+            {
+                _dealingShoe = value;
+            }
+        }
+
+        public PlayTable ()
+        {
+            DealingShoe = new Deck();
+            DealingShoe.Shuffle();
+        }
     }
 }
