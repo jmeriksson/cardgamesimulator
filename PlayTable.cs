@@ -23,6 +23,9 @@ namespace me222nm_examination_3
             get => _discardedCards;
         }
 
+        /// <summary>
+        /// Constructs a new PlayTable object.
+        /// </summary>
         public PlayTable ()
         {
             DealingShoe = new Deck();

@@ -32,11 +32,22 @@ namespace me222nm_examination_3
             }
         }
 
+        /// <summary>
+        /// Constructs a new instance of Game object.
+        /// </summary>
+        /// <param name="table">A PlayTable object where the game will take place.</param>
+        /// <param name="dealer">A Dealer object.</param>
+        /// <param name="players">Any number of Player objects.</param>
         public Game (PlayTable table, Dealer dealer, params Player[] players)
         {
             Table = table;
             Dealer = dealer;
             Players = players;
+        }
+
+        public void Play ()
+        {
+            
         }
     }
 }

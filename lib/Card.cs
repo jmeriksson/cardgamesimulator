@@ -45,6 +45,11 @@ namespace me222nm_examination_3
             }
         }
 
+        /// <summary>
+        /// Constructs a new Card object.
+        /// </summary>
+        /// <param name="rank">A Rank enum representing the card's rank.</param>
+        /// <param name="suit">A Suit enum representing the card's suit.</param>
         public Card (Rank rank, Suit suit)
         {
             Rank = rank;
@@ -231,6 +236,10 @@ namespace me222nm_examination_3
             }
         }
 
+        /// <summary>
+        /// Constructs a new Card object.
+        /// </summary>
+        /// <param name="id">An integer representing a Card id (min.value: 1, max.value: 52).</param>
         public Card (int id)
         {
             ID = id;
@@ -447,6 +456,10 @@ namespace me222nm_examination_3
             }
         }
 
+        /// <summary>
+        /// Constructs a string representing the Card object's value (suit + rank).
+        /// </summary>
+        /// <returns>A string representing the Card object's value (suit + rank).</returns>
         public override string ToString()
         {
             string printSuit = "";

@@ -53,6 +53,13 @@ namespace me222nm_examination_3
             }
         }
 
+        /// <summary>
+        /// Constructs a new Player object.
+        /// </summary>
+        /// <param name="nickname">A string representing the player's nickname.</param>
+        /// <param name="limit">An integer representing the hand value where the player will hold (min.value: 1, max.value: 21).</param>
+        /// <param name="table">A PlayTable object representing the table where the player will sit.</param>
+        /// <returns>Returns a Player object.</returns>
         public Player (string nickname, int limit, PlayTable table)
         {
             Nickname = nickname;

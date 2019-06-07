@@ -75,6 +75,9 @@ namespace me222nm_examination_3
             return _content.Count;
         }
 
+        /// <summary>
+        /// Shuffles the order of this deck.
+        /// </summary>
         public void Shuffle ()
         {
             int l = Length();
