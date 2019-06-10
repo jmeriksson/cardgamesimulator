@@ -17,6 +17,7 @@ namespace me222nm_examination_3
             Player playerTwo = new Player("Joey Spades", 15, table);
 
             Game gameOne = new Game(table, dealer, playerOne, playerTwo);
+            gameOne.Play();
         }
     }
 }

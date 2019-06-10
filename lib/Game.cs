@@ -47,7 +47,75 @@ namespace me222nm_examination_3
 
         public void Play ()
         {
-            
+            Console.WriteLine($"Game started. {Dealer.Nickname} hands one card to each player.");
+            foreach (Player player in Players)
+            {
+                player.hand.Add(Dealer.DrawCard());
+            }
+
+            foreach (Player player in Players)
+            {
+                while (player.EvaluateHand() == "hit me" || player.hand.Count < 2)
+                {
+                    Console.WriteLine($"{player.Nickname} has this hand: {player.HandToString()}");
+                    Console.WriteLine($"{player.Nickname}: 'Hit me!'");
+                    Console.WriteLine($"{Dealer.Nickname} hands {player.Nickname} another card.");
+                    player.hand.Add(Dealer.DrawCard());
+                }
+
+                switch (player.EvaluateHand())
+                {
+                    case "bust":
+                        Console.WriteLine($"{player.Nickname} has this hand: {player.HandToString()}");
+                        Console.WriteLine($"{player.Nickname} is busted.");
+                        Console.WriteLine();
+                        break;
+                    case "twenty-one":
+                        Console.WriteLine($"{player.Nickname} has this hand: {player.HandToString()}");
+                        Console.WriteLine($"{player.Nickname} has Twenty-One and wins against the dealer.");
+                        Console.WriteLine();
+                        break;
+                    case "hold":
+                        Console.WriteLine($"{player.Nickname} has this hand: {player.HandToString()}");
+                        Console.WriteLine($"{player.Nickname}: 'Hold!'");
+                        while (Dealer.EvaluateHand() == "hit me" || Dealer.HandValue <= player.HandValue)
+                        {
+                            Console.WriteLine($"{Dealer.Nickname} draws a card.");
+                            Dealer.hand.Add(Dealer.DrawCard());
+                            Console.WriteLine($"{Dealer.Nickname} has this hand: {Dealer.HandToString()}");
+                        }
+                        switch (Dealer.EvaluateHand())
+                        {
+                            case "bust":
+                                Console.WriteLine($"{Dealer.Nickname} is busted. {player.Nickname} wins.");
+                                Console.WriteLine();
+                                Dealer.ResetHand();
+                                break;
+                            case "twenty-one":
+                                Console.WriteLine($"{Dealer.Nickname} has Twenty-One and wins against {player.Nickname}.");
+                                Console.WriteLine();
+                                Dealer.ResetHand();
+                                break;
+                            case "hold":
+                            case "hit me":
+                                if (Dealer.HandValue >= player.HandValue)
+                                {
+                                    Console.WriteLine($"{Dealer.Nickname} has {Dealer.HandValue} and {player.Nickname} has {player.HandValue}. Dealer wins.");
+                                    Console.WriteLine();
+                                    Dealer.ResetHand();
+                                }
+                                else
+                                {
+                                    Console.WriteLine($"{Dealer.Nickname} has {Dealer.HandValue} and {player.Nickname} has {player.HandValue}. Player wins.");
+                                    Console.WriteLine();
+                                    Dealer.ResetHand();
+                                }
+                                break;
+                        }
+                        Console.WriteLine();
+                        break;
+                }
+            }
         }
     }
 }
