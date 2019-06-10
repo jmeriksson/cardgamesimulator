@@ -21,6 +21,10 @@ namespace me222nm_examination_3
         public Deck DiscardedCards
         {
             get => _discardedCards;
+            private set
+            {
+                _discardedCards = value;
+            }
         }
 
         /// <summary>
@@ -30,6 +34,8 @@ namespace me222nm_examination_3
         {
             DealingShoe = new Deck();
             DealingShoe.Shuffle();
+            DiscardedCards = new Deck();
+            DiscardedCards.RemoveAll();
         }
     }
 }

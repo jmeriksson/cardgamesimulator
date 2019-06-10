@@ -68,11 +68,21 @@ namespace me222nm_examination_3
                     case "bust":
                         Console.WriteLine($"{player.Nickname} has this hand: {player.HandToString()}");
                         Console.WriteLine($"{player.Nickname} is busted.");
+                        foreach (Card card in player.hand)
+                        {
+                            Table.DiscardedCards.Add(card);
+                        }
+                        player.hand.Clear();
                         Console.WriteLine();
                         break;
                     case "twenty-one":
                         Console.WriteLine($"{player.Nickname} has this hand: {player.HandToString()}");
                         Console.WriteLine($"{player.Nickname} has Twenty-One and wins against the dealer.");
+                        foreach (Card card in player.hand)
+                        {
+                            Table.DiscardedCards.Add(card);
+                        }
+                        player.hand.Clear();
                         Console.WriteLine();
                         break;
                     case "hold":
@@ -89,12 +99,30 @@ namespace me222nm_examination_3
                             case "bust":
                                 Console.WriteLine($"{Dealer.Nickname} is busted. {player.Nickname} wins.");
                                 Console.WriteLine();
-                                Dealer.ResetHand();
+                                foreach (Card card in player.hand)
+                                {
+                                    Table.DiscardedCards.Add(card);
+                                }
+                                player.hand.Clear();
+                                foreach (Card card in Dealer.hand)
+                                {
+                                    Table.DiscardedCards.Add(card);
+                                }
+                                Dealer.hand.Clear();
                                 break;
                             case "twenty-one":
                                 Console.WriteLine($"{Dealer.Nickname} has Twenty-One and wins against {player.Nickname}.");
                                 Console.WriteLine();
-                                Dealer.ResetHand();
+                                foreach (Card card in player.hand)
+                                {
+                                    Table.DiscardedCards.Add(card);
+                                }
+                                player.hand.Clear();
+                                foreach (Card card in Dealer.hand)
+                                {
+                                    Table.DiscardedCards.Add(card);
+                                }
+                                Dealer.hand.Clear();
                                 break;
                             case "hold":
                             case "hit me":
@@ -102,13 +130,31 @@ namespace me222nm_examination_3
                                 {
                                     Console.WriteLine($"{Dealer.Nickname} has {Dealer.HandValue} and {player.Nickname} has {player.HandValue}. Dealer wins.");
                                     Console.WriteLine();
-                                    Dealer.ResetHand();
+                                    foreach (Card card in player.hand)
+                                    {
+                                        Table.DiscardedCards.Add(card);
+                                    }
+                                    player.hand.Clear();
+                                    foreach (Card card in Dealer.hand)
+                                    {
+                                        Table.DiscardedCards.Add(card);
+                                    }
+                                    Dealer.hand.Clear();
                                 }
                                 else
                                 {
                                     Console.WriteLine($"{Dealer.Nickname} has {Dealer.HandValue} and {player.Nickname} has {player.HandValue}. Player wins.");
                                     Console.WriteLine();
-                                    Dealer.ResetHand();
+                                    foreach (Card card in player.hand)
+                                    {
+                                        Table.DiscardedCards.Add(card);
+                                    }
+                                    player.hand.Clear();
+                                    foreach (Card card in Dealer.hand)
+                                    {
+                                        Table.DiscardedCards.Add(card);
+                                    }
+                                    Dealer.hand.Clear();
                                 }
                                 break;
                         }

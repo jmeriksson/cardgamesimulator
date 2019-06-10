@@ -36,6 +36,21 @@ namespace me222nm_examination_3
             }
         }
 
+        public void Add (Card[] items)
+        {
+            foreach (Card card in items)
+            {
+                if (_content.Contains(card))
+                {
+                    throw new InvalidOperationException($"{card.ToString()} is already in this deck.");
+                }
+                else
+                {
+                    _content.Add(card);
+                }
+            }
+        }
+
         /// <summary>
         /// Removes and returns the Card item at the zero index position.
         /// </summary>
@@ -64,6 +79,14 @@ namespace me222nm_examination_3
                 throw new ArgumentException($"{cardToRemove} is not present in this deck.");
             }
             
+        }
+
+        /// <summary>
+        /// Removes all cards from Deck.
+        /// </summary>
+        public void RemoveAll ()
+        {
+            _content.Clear();
         }
 
         /// <summary>
