@@ -3,6 +3,9 @@ using System.Collections.Generic;
 
 namespace me222nm_examination_3
 {
+    /// <summary>
+    /// Represents a Dealer objects (inherits from Player).
+    /// </summary>
     public class Dealer : Player
     {
         /// <summary>
@@ -57,11 +60,6 @@ namespace me222nm_examination_3
                 SitsAt.DealingShoe.Add(SitsAt.DiscardedCards.DrawCard());
             }
             SitsAt.DealingShoe.Shuffle();
-        }
-
-        public void ResetHand ()
-        {
-            this.hand.Clear();
         }
     }
 }

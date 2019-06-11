@@ -3,32 +3,29 @@ using System.Text.RegularExpressions;
 
 namespace me222nm_examination_3
 {
+    /// <summary>
+    /// Represents a playing card.
+    /// </summary>
     public class Card
     {
-        private Suit _suit;
-
-        private Rank _rank;
-
+        /// <summary>
+        /// Declares the field that holds a card's id number.
+        /// </summary>
         private int _id; 
 
-        public Rank Rank
-        {
-            get => _rank;
-            private set
-            {
-                _rank = value;
-            }
-        }
+        /// <summary>
+        /// Declares the field that holds a card's rank.
+        /// </summary>
+        private Rank _rank;
 
-        public Suit Suit
-        {
-            get => _suit;
-            private set
-            {
-                _suit = value;
-            }
-        }
+        /// <summary>
+        /// Declares the field that holds a card's suit.
+        /// </summary>
+        private Suit _suit;
 
+        /// <summary>
+        /// The ID property reads and sets a value from/to the _id field.
+        /// </summary>
         public int ID
         {
             get => _id;
@@ -45,201 +42,34 @@ namespace me222nm_examination_3
             }
         }
 
-        /// <summary>
-        /// Constructs a new Card object.
+         /// <summary>
+        /// The Suit property reads and sets a value from/to the _suit field.
         /// </summary>
-        /// <param name="rank">A Rank enum representing the card's rank.</param>
-        /// <param name="suit">A Suit enum representing the card's suit.</param>
-        public Card (Rank rank, Suit suit)
+        public Suit Suit
         {
-            Rank = rank;
-            Suit = suit;
-
-            switch (Suit)
+            get => _suit;
+            private set
             {
-                case Suit.Hearts:
-                    switch (Rank)
-                    {
-                        case Rank.Two:
-                            ID = 1;
-                            break;
-                        case Rank.Three:
-                            ID = 2;
-                            break;
-                        case Rank.Four:
-                            ID = 3;
-                            break;
-                        case Rank.Five:
-                            ID = 4;
-                            break;
-                        case Rank.Six:
-                            ID = 5;
-                            break;
-                        case Rank.Seven:
-                            ID = 6;
-                            break;
-                        case Rank.Eight:
-                            ID = 7;
-                            break;
-                        case Rank.Nine:
-                            ID = 8;
-                            break;
-                        case Rank.Ten:
-                            ID = 9;
-                            break;
-                        case Rank.Jack:
-                            ID = 10;
-                            break;
-                        case Rank.Queen:
-                            ID = 11;
-                            break;
-                        case Rank.King:
-                            ID = 12;
-                            break;
-                        case Rank.Ace:
-                            ID = 13;
-                            break;
-                    }
-                    break;
-                case Suit.Diamonds:
-                    switch (Rank)
-                    {
-                        case Rank.Two:
-                            ID = 14;
-                            break;
-                        case Rank.Three:
-                            ID = 15;
-                            break;
-                        case Rank.Four:
-                            ID = 16;
-                            break;
-                        case Rank.Five:
-                            ID = 17;
-                            break;
-                        case Rank.Six:
-                            ID = 18;
-                            break;
-                        case Rank.Seven:
-                            ID = 19;
-                            break;
-                        case Rank.Eight:
-                            ID = 20;
-                            break;
-                        case Rank.Nine:
-                            ID = 21;
-                            break;
-                        case Rank.Ten:
-                            ID = 22;
-                            break;
-                        case Rank.Jack:
-                            ID = 23;
-                            break;
-                        case Rank.Queen:
-                            ID = 24;
-                            break;
-                        case Rank.King:
-                            ID = 25;
-                            break;
-                        case Rank.Ace:
-                            ID = 26;
-                            break;
-                    }
-                    break;
-                case Suit.Spades:
-                    switch (Rank)
-                    {
-                        case Rank.Two:
-                            ID = 27;
-                            break;
-                        case Rank.Three:
-                            ID = 28;
-                            break;
-                        case Rank.Four:
-                            ID = 29;
-                            break;
-                        case Rank.Five:
-                            ID = 30;
-                            break;
-                        case Rank.Six:
-                            ID = 31;
-                            break;
-                        case Rank.Seven:
-                            ID = 32;
-                            break;
-                        case Rank.Eight:
-                            ID = 33;
-                            break;
-                        case Rank.Nine:
-                            ID = 34;
-                            break;
-                        case Rank.Ten:
-                            ID = 35;
-                            break;
-                        case Rank.Jack:
-                            ID = 36;
-                            break;
-                        case Rank.Queen:
-                            ID = 37;
-                            break;
-                        case Rank.King:
-                            ID = 38;
-                            break;
-                        case Rank.Ace:
-                            ID = 39;
-                            break;
-                    }
-                    break;
-                case Suit.Clubs:
-                    switch (Rank)
-                    {
-                        case Rank.Two:
-                            ID = 40;
-                            break;
-                        case Rank.Three:
-                            ID = 41;
-                            break;
-                        case Rank.Four:
-                            ID = 42;
-                            break;
-                        case Rank.Five:
-                            ID = 43;
-                            break;
-                        case Rank.Six:
-                            ID = 44;
-                            break;
-                        case Rank.Seven:
-                            ID = 45;
-                            break;
-                        case Rank.Eight:
-                            ID = 46;
-                            break;
-                        case Rank.Nine:
-                            ID = 47;
-                            break;
-                        case Rank.Ten:
-                            ID = 48;
-                            break;
-                        case Rank.Jack:
-                            ID = 49;
-                            break;
-                        case Rank.Queen:
-                            ID = 50;
-                            break;
-                        case Rank.King:
-                            ID = 51;
-                            break;
-                        case Rank.Ace:
-                            ID = 52;
-                            break;
-                    }
-                    break;
+                _suit = value;
             }
         }
 
         /// <summary>
+        /// The Rank property reads and sets a value from/to the _rank field.
+        /// </summary>
+        public Rank Rank
+        {
+            get => _rank;
+            private set
+            {
+                _rank = value;
+            }
+        }
+        
+        /// <summary>
         /// Constructs a new Card object.
         /// </summary>
-        /// <param name="id">An integer representing a Card id (min.value: 1, max.value: 52).</param>
+        /// <param name="id">An integer representing a Card ID (min.value: 1, max.value: 52).</param>
         public Card (int id)
         {
             ID = id;

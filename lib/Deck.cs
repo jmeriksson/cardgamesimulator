@@ -3,10 +3,20 @@ using System.Collections.Generic;
 
 namespace me222nm_examination_3
 {
+    /// <summary>
+    /// Represents a Deck of playing cards.
+    /// </summary>
     public class Deck
     {
+        /// <summary>
+        /// Creates a public list of Card objects that represents a deck of playing cards.
+        /// </summary>
+        /// <typeparam name="Card">Card object(s)</typeparam>
         private List<Card> _content = new List<Card>();
 
+        /// <summary>
+        /// Creates a new Random object which is used to shuffle a deck of playing cards.
+        /// </summary>
         static Random _random = new Random();
 
         /// <summary>
@@ -23,7 +33,7 @@ namespace me222nm_examination_3
         /// <summary>
         /// Add a card to Deck if that card is not already in the deck.
         /// </summary>
-        /// <param name="item"></param>
+        /// <param name="item">A Card object.</param>
         public void Add (Card item)
         {
             if (_content.Contains(item))
@@ -33,21 +43,6 @@ namespace me222nm_examination_3
             else
             {
                 _content.Add(item);
-            }
-        }
-
-        public void Add (Card[] items)
-        {
-            foreach (Card card in items)
-            {
-                if (_content.Contains(card))
-                {
-                    throw new InvalidOperationException($"{card.ToString()} is already in this deck.");
-                }
-                else
-                {
-                    _content.Add(card);
-                }
             }
         }
 
@@ -63,22 +58,12 @@ namespace me222nm_examination_3
         }
 
         /// <summary>
-        /// Removes a specific card from Deck.
+        /// Returns the current length of the deck.
         /// </summary>
-        /// <param name="cardToRemove">Reference to the Card to be removed</param>
-        /// <returns></returns>
-        public Card Remove (Card cardToRemove)
+        /// <returns>int - The current length of the deck.</returns>
+        public int Length ()
         {
-            if (_content.Contains(cardToRemove))
-            {
-                _content.Remove(cardToRemove);
-                return cardToRemove;
-            }
-            else
-            {
-                throw new ArgumentException($"{cardToRemove} is not present in this deck.");
-            }
-            
+            return _content.Count;
         }
 
         /// <summary>
@@ -87,15 +72,6 @@ namespace me222nm_examination_3
         public void RemoveAll ()
         {
             _content.Clear();
-        }
-
-        /// <summary>
-        /// Returns the current length of the deck.
-        /// </summary>
-        /// <returns>int - The current length of the deck.</returns>
-        public int Length ()
-        {
-            return _content.Count;
         }
 
         /// <summary>

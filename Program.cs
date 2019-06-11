@@ -13,10 +13,13 @@ namespace me222nm_examination_3
             // Instantiates the objects necessary to play a game.
             PlayTable table = new PlayTable();
             Dealer dealer = new Dealer("Mickey Sharp-Eyes", 17, table);
-            Player playerOne = new Player("Stacy Snake-Eyes", 16, table);
+            Player playerOne = new Player("Stacey the Snake", 16, table);
             Player playerTwo = new Player("Joey Spades", 15, table);
+            Player playerThree = new Player("Shelly Shark", 8, table);
+            Player playerFour = new Player("Eric McBigmoney", 21, table);
+            Player playerFive = new Player("Davey Dontgetthegame", 1, table);
 
-            Game gameOne = new Game(table, dealer, playerOne, playerTwo);
+            Game gameOne = new Game(table, dealer, playerOne, playerTwo, playerThree, playerFour, playerFive);
             gameOne.Play();
         }
     }

@@ -3,33 +3,52 @@ using System.Collections.Generic;
 
 namespace me222nm_examination_3
 {
+    /// <summary>
+    /// Represents a Player object.
+    /// </summary>
     public class Player
     {
-        private string _nickname;
-
-        private int _limit;
-
-        private PlayTable _sitsAt; 
-
+        /// <summary>
+        /// Declares a field that holds information on the value of a player's hand.
+        /// </summary>
         private int _handValue;
 
+        /// <summary>
+        /// Declares a field that holds a player's limit (where they stop asking for more cards).
+        /// </summary>
+        private int _limit;
+
+        /// <summary>
+        /// Declares a field that holds a player's nickname.
+        /// </summary>
+        private string _nickname;
+
+        /// <summary>
+        /// Declares a field that holds information on which PlayTable object a player is connected to.
+        /// </summary>
+        private PlayTable _sitsAt; 
+
+        /// <summary>
+        /// Creates a public list of Card objects that represents a player's hand.
+        /// </summary>
+        /// <typeparam name="Card">Card object(s)</typeparam>
         public List<Card> hand = new List<Card>();
 
-        public string Nickname
+        /// <summary>
+        /// The HandValue property reads and sets a value from/to the _handValue field.
+        /// </summary>
+        public int HandValue
         {
-            get => _nickname;
-            private set 
+            get => _handValue;
+            private set
             {
-                if (value.Trim().Length <= 0)
-                {
-                    throw new FormatException();
-                }
-                else {
-                    _nickname = value;
-                }
+                _handValue = value;
             }
         }
 
+        /// <summary>
+        /// The Limit property reads and sets a value from/to the _limit field.
+        /// </summary>
         public int Limit
         {
             get => _limit;
@@ -46,21 +65,33 @@ namespace me222nm_examination_3
             }
         }
 
+        /// <summary>
+        /// The Nickname property reads and sets a value from/to the _nickName field.
+        /// </summary>
+        public string Nickname
+        {
+            get => _nickname;
+            private set 
+            {
+                if (value.Trim().Length <= 0)
+                {
+                    throw new FormatException();
+                }
+                else {
+                    _nickname = value;
+                }
+            }
+        }
+
+        /// <summary>
+        /// The SitsAt property reads and sets a value from/to the _sitsAt field.
+        /// </summary>
         public PlayTable SitsAt
         {
             get => _sitsAt;
             private set 
             {
                 _sitsAt = value;
-            }
-        }
-
-        public int HandValue
-        {
-            get => _handValue;
-            private set
-            {
-                _handValue = value;
             }
         }
 
@@ -75,6 +106,15 @@ namespace me222nm_examination_3
             Nickname = nickname;
             Limit = limit; 
             SitsAt = table;
+        }
+
+        /// <summary>
+        /// Removes all card references from a player's hand and resets their hand value to 0.
+        /// </summary>
+        public void ClearHand()
+        {
+            hand.Clear();
+            HandValue = 0;
         }
 
         /// <summary>
@@ -163,6 +203,10 @@ namespace me222nm_examination_3
             }
         }
 
+        /// <summary>
+        /// Converts the Card objects in this player's hand to a string representing their rank and suit.
+        /// </summary>
+        /// <returns>A string representing the cards in this player's hand.</returns>
         public string HandToString()
         {
             string result = "";

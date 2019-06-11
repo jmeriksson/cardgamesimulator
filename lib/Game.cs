@@ -2,19 +2,30 @@ using System;
 
 namespace me222nm_examination_3
 {
+    /// <summary>
+    /// Represents a Game of Twenty-One.
+    /// </summary>
     public class Game
     {
-        private PlayTable _table;
+        /// <summary>
+        /// Declares a field that holds information on the Dealer object that is connected to this game.
+        /// </summary>
         private Dealer _dealer;
+
+        /// <summary>
+        /// Declares a field that holds information on which Player object(s) that is/are connected to this game. 
+        /// </summary>
         private Player[] _players;
-        public PlayTable Table
-        {
-            get => _table;
-            private set
-            {
-                _table = value;
-            }
-        }
+
+        /// <summary>
+        /// Declares a field that holds information on which PlayTable object the game is connected to.
+        /// </summary>
+        private PlayTable _table;
+
+        /// <summary>
+        /// The Dealer property reads and sets a value from/to the _dealer field.
+        /// </summary>
+        /// <value></value>
         public Dealer Dealer
         {
             get => _dealer;
@@ -23,12 +34,28 @@ namespace me222nm_examination_3
                 _dealer = value;
             }
         }
+
+        /// <summary>
+        /// The Players property reads and sets a value from/to the _players field.
+        /// </summary>
         public Player[] Players
         {
             get => _players;
             private set
             {
                 _players = value;
+            }
+        }
+
+        /// <summary>
+        /// The Table property reads and sets a value from/to the _table field.
+        /// </summary>
+        public PlayTable Table
+        {
+            get => _table;
+            private set
+            {
+                _table = value;
             }
         }
 
@@ -124,12 +151,12 @@ namespace me222nm_examination_3
                 {
                     Table.DiscardedCards.Add(card);
                 }
-                player.hand.Clear();
+                player.ClearHand();
                 foreach (Card card in Dealer.hand)
                 {
                     Table.DiscardedCards.Add(card);
                 }
-                Dealer.hand.Clear();
+                Dealer.ClearHand();
             }
         }
     }
