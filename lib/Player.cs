@@ -193,6 +193,10 @@ namespace me222nm_examination_3
             {
                 return "twenty-one";
             }
+            else if (HandValue < 21 && hand.Count >= 5)
+            {
+                return "five cards";
+            }
             else if (HandValue >= Limit)
             {
                 return "hold";

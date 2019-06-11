@@ -77,11 +77,13 @@ namespace me222nm_examination_3
         /// </summary>
         public void Play ()
         {
+            // Each player gets an initial card.
             foreach (Player player in Players)
             {
                 player.hand.Add(Dealer.DrawCard());
             }
 
+            // Each player plays against the dealer.
             foreach (Player player in Players)
             {
                 while (player.EvaluateHand() == "hit me" || player.hand.Count < 2)
@@ -102,6 +104,14 @@ namespace me222nm_examination_3
                         Console.WriteLine($"{player.Nickname}: {player.HandToString()}({player.HandValue}) TWENTY-ONE!");
                         Console.WriteLine($"{Dealer.Nickname}: {Dealer.HandToString()}({Dealer.HandValue})");
                         Console.WriteLine($"{player.Nickname} wins!");
+                        Console.WriteLine();
+
+                        break;
+
+                    case "five cards":
+                        Console.WriteLine($"{player.Nickname}: {player.HandToString()}({player.HandValue})");
+                        Console.WriteLine($"{Dealer.Nickname}: {Dealer.HandToString()}({Dealer.HandValue})");
+                        Console.WriteLine($"{player.Nickname} wins (five cards on hand)!");
                         Console.WriteLine();
 
                         break;
